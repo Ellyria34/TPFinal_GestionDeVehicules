@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPFinal_GestionDeVehicules", "TPFinal_GestionDeVehicules\TPFinal_GestionDeVehicules.csproj", "{E6326C47-41BC-43DF-AEC1-671E5D71892A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{49D21137-BE65-46ED-A1D5-23B358142C37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6326C47-41BC-43DF-AEC1-671E5D71892A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6326C47-41BC-43DF-AEC1-671E5D71892A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6326C47-41BC-43DF-AEC1-671E5D71892A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6326C47-41BC-43DF-AEC1-671E5D71892A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49D21137-BE65-46ED-A1D5-23B358142C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49D21137-BE65-46ED-A1D5-23B358142C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49D21137-BE65-46ED-A1D5-23B358142C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49D21137-BE65-46ED-A1D5-23B358142C37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB969B96-7D10-443D-9F0C-E728FB5DC9D5}
+	EndGlobalSection
+EndGlobal
