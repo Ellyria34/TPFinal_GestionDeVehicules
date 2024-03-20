@@ -22,17 +22,16 @@ public class Programe
     };
 
 
-
     static void Main(string[] args)
     {
-        
+
         string fileName = "ListeVehicules.json";
 
-        //List<Vehicule> vehicules = LoadListVehicules<List<Vehicule>>(fileName);
-        //foreach (var vehicule in vehicules)
-        //{
-        //    Console.WriteLine(vehicule);
-        //}
+        List<Vehicule> vehicules = LoadListVehicules<List<Vehicule>>(fileName);
+        foreach (var vehicule in vehicules)
+        {
+            Console.WriteLine(vehicule);
+        }
 
         static void DisplayMenu()
         {
@@ -58,49 +57,46 @@ public class Programe
         {
             action = GetIntInput("Choisissez votre action en entrant le chiffre correspondant");
             Console.WriteLine();
-            DisplayMenu();
+
             switch (action)
             {
-                case 1 :
-                    CreatVehiculeAsync(vehicules);
-                    DisplayMenu();
+                case 1:
+                    CreateVehicule(vehicules);
                     break;
 
                 case 2:
-                    
+
                     GetAllVehicules(vehicules);
-                    DisplayMenu();
                     break;
 
                 case 3:
                     GetVehiculeByNumero(vehicules);
-                    DisplayMenu();
                     break;
 
                 case 4:
-                    //UpdateVehiculeByNumero(vehicules);
-                    DisplayMenu();
+                    UpdateVehiculeByNumero(vehicules);
                     break;
 
                 case 5:
                     DeletedVehiculeByNumero(vehicules);
-                    DisplayMenu();
                     break;
 
                 case 6:
-                    //SortVehicules(vehicules);
-                    DisplayMenu();
+                    SortVehicules(vehicules);
                     break;
 
                 case 7:
-                    //FilterVehicule(vehicules);
-                    DisplayMenu();
+                    FilterVehicule(vehicules);
                     break;
 
                 case 8:
                     SaveInJSONFile<List<Vehicule>>(vehicules, fileName);
                     break;
+                case 9:
+                    Console.WriteLine("L'action demandée n'est pas valide.");
+                    break;
             }
+            DisplayMenu();
         }
     }
 }

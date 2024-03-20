@@ -14,7 +14,7 @@ public class Camion : Vehicule
 
     #region Constructeurs
     public Camion() { }
-    public Camion(int numero, string? marque, string? modele, double poids) : base(numero, marque, modele)
+    public Camion(int numero, string marque, string modele, double poids) : base(numero, marque, modele)
     {
         Poids = poids;
     }
