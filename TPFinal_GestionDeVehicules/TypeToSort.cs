@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TPFinal_GestionDeVehicules;
 public enum TypeToSort
-{ 
-    Numero, 
-    Modele, 
-    Marque, 
-    Poids, 
-    Puissance 
+{
+    Numero,
+    Modele,
+    Marque,
+    Poids,
+    Puissance
 }

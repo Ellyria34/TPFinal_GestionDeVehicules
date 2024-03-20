@@ -8,14 +8,14 @@ namespace Entities;
 public class Voiture : Vehicule
 {
     # region Propriétés
-    public int Puissance {  get; set; }
+    public int Puissance { get; set; }
 
     #endregion
 
     #region Constructeurs
     public Voiture() { }
 
-    public Voiture (int numero, string marque, string modele, int puissance) : base (numero, marque, modele)
+    public Voiture(int numero, string marque, string modele, int puissance) : base(numero, marque, modele)
     {
         Puissance = puissance;
     }

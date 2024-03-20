@@ -1,21 +1,26 @@
 ﻿using Entities.Exceptions;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities;
 
-public abstract class Vehicule
+[JsonDerivedType(typeof(Voiture), typeDiscriminator: "voiture")]
+[JsonDerivedType(typeof(Camion), typeDiscriminator: "camion")]
+
+public class Vehicule
 {
     #region attributs
-        public int numero;
-    public string marque;
+    public int numero;
+    public string? marque;
     #endregion
 
     #region Propriétés
 
-    public int Numero 
+    public int Numero
     {
         get { return numero; }
-        set {
+        set
+        {
             if (value >= 1000 && value <= 999999)
             {
                 numero = value;
@@ -24,19 +29,22 @@ public abstract class Vehicule
             {
                 throw new InvalidNumeroFormatException();
             }
-        ;}
+        ;
+        }
     }
-    public string? Marque 
+    public string? Marque
     {
         get { return marque; }
-        set {
+        set
+        {
             if (!value.Any(c => char.IsDigit(c)) && value == null)
                 throw new InvalidMarqueFormatException();
-            else 
+            else
             {
                 marque = value;
             }
-            ;} 
+            ;
+        }
     }
 
     public string? Modele { get; set; }
@@ -61,6 +69,5 @@ public abstract class Vehicule
     {
         return string.Format("Numéro : {0, -8} Marque : {1, -10}, Modele : {2, -10}", Numero, Marque, Modele);
     }
-
     #endregion
 }
