@@ -14,7 +14,7 @@ public class ActionOnVehicule
     {
         int numeroInput = 0;
         string? marqueInput = "1";
-        string? modeleInput= null;
+        string? modeleInput = null;
         string typeOfVehicule;
 
         Console.WriteLine("Afin de créer un nouveau véhicule vous devez entrer les informations suivante");
@@ -48,7 +48,7 @@ public class ActionOnVehicule
 
 
         //Récupérer le modele
-        
+
         while (modeleInput == null)
         {
             modeleInput = GetStringInput("Indiquer le modèle du véhicule");
@@ -73,8 +73,8 @@ public class ActionOnVehicule
                     {
                         vehicules.Add(new Voiture(numeroInput, marqueInput, modeleInput, puissanceInput));
                     }
-                    catch (Exception ex) 
-                    { 
+                    catch (Exception ex)
+                    {
                         Console.WriteLine(ex.Message);
                     }
                     break;
@@ -115,8 +115,12 @@ public class ActionOnVehicule
     public static void GetVehiculeByNumero(List<Vehicule> vehicules)
     {
         int intUserInput = GetIntInput("Entez le numéro du véhicule à afficher : ");
-        var selectedVehicule = vehicules.FirstOrDefault(v => v.Numero == intUserInput) ?? throw new NotImplementedException(message: "Ce numéro n'existe pas.");
-        Console.WriteLine(selectedVehicule.ToString());
+        try
+        {
+            var selectedVehicule = vehicules.FirstOrDefault(v => v.Numero == intUserInput);
+            Console.WriteLine(selectedVehicule.ToString());
+        }
+        catch (Exception) { Console.WriteLine("Ce numéro n'existe pas."); }
     }
 
 
@@ -140,7 +144,7 @@ public class ActionOnVehicule
     public static void UpdateVehiculeByNumero(List<Vehicule> vehicules)
     {
         int intUserInput = GetIntInput("Entez le numéro du véhicule à afficher : ");
-        var vehiculeToUpdate = vehicules.FirstOrDefault(v => v.Numero == intUserInput) ?? throw new NotImplementedException(message: "Ce numéro n'existe pas.");
+        var vehiculeToUpdate = vehicules.FirstOrDefault(v => v.Numero == intUserInput) ?? throw new Exception(message: "Ce numéro n'existe pas.");
         Console.WriteLine(vehiculeToUpdate.ToString());
         string userInput = GetStringInput("Est-ce-qu'il s'agit bien du véhicule que vous voulez modier? (o / n");
         if (userInput == "o")
