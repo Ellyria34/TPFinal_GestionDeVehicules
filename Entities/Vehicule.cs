@@ -1,14 +1,44 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Entities.Exceptions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities;
 
 public abstract class Vehicule
 {
-    public int numero;
-    #region Propriété
+    #region attributs
+        public int numero;
+    public string marque;
+    #endregion
 
-    public int Numero { get; set; }
-    public string? Marque { get; set; }
+    #region Propriétés
+
+    public int Numero 
+    {
+        get { return numero; }
+        set {
+            if (value >= 1000 && value <= 999999)
+            {
+                numero = value;
+            }
+            else
+            {
+                throw new InvalidNumeroFormatException();
+            }
+        ;}
+    }
+    public string? Marque 
+    {
+        get { return marque; }
+        set {
+            if (!value.Any(c => char.IsDigit(c)) && value == null)
+                throw new InvalidMarqueFormatException();
+            else 
+            {
+                marque = value;
+            }
+            ;} 
+    }
+
     public string? Modele { get; set; }
 
     #endregion

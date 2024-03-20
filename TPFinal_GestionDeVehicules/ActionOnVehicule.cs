@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Exceptions;
 using static TPFinal_GestionDeVehicules.Tools;
 using System.Linq;
 using System;
@@ -12,75 +13,80 @@ using System.Threading.Tasks;
 namespace TPFinal_GestionDeVehicules;
 public class ActionOnVehicule
 {
+
     public static void CreatVehiculeAsync(List<Vehicule> vehicules)
     {
+        int numeroInput;
+        string marqueInput;
+        string modeleInput;
+        string typeOfVehicule;
+
         Console.WriteLine("Afin de créer un nouveau véhicule vous devez entrer les informations suivante");
-
         // Récupération du numéro
-        int mumeroInput = Tools.GetIntInput("Indiquer le numéro du véhicule (entre 4 et 6 chiffres) : ");
-
-        if (mumeroInput >= 1000 && mumeroInput <= 999999)
+        try
         {
-            int numero = mumeroInput;
+            numeroInput = GetIntInput("Indiquer le numéro du véhicule (entre 4 et 6 chiffres) : ");
         }
-        else
+        catch (InvalidNumeroFormatException ex)
         {
-            throw new Exception("Le numéro Entré n'est de contient pas entre 4 et 6 chiffre");
-            mumeroInput = Tools.GetIntInput("Indiquer le numéro du véhicule (entre 4 et 6 chiffres) : ");
+            Console.WriteLine(ex.Message);
         }
 
         //Récupérer la marque
-        string marqueInput = Tools.GetStringInput("Indiquer la marque du véhicule (sans chiffre)");
-
-        while (!marqueInput.Any(c => char.IsDigit(c)) && marqueInput == null)
+        try
         {
-            throw new Exception("La marque ne doit pas contenir de chiffre");
-            marqueInput = Tools.GetStringInput("Indiquer la marque du véhicule (sans chiffre");
+            marqueInput = GetStringInput("Indiquer la marque du véhicule (sans chiffre)");
         }
-        string marque = marqueInput;
+        catch (InvalidMarqueFormatException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
 
         //Récupérer le modele
-        string modeleInput = Tools.GetStringInput("Indiquer le modèle du véhicule");
 
-        while (modeleInput == null)
+        try
         {
-            throw new Exception("La marque ne doit pas contenir de chiffre");
-            modeleInput = Tools.GetStringInput("Indiquer la marque du véhicule (sans chiffre");
+            modeleInput =GetStringInput("Indiquer le modèle du véhicule");
         }
-        string modele = modeleInput;
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
 
         //Recupérer la puissance si il s'agit d'une voiture ou le poids si il s'agit d'un camion
-        string typeOfVehicule = Tools.GetStringInput("Taper le chiffre 1 ou 2 pour indiquer le type de véhicule (1 : voiture , 2 : camion)");
+
+        typeOfVehicule =GetStringInput("Taper le chiffre 1 ou 2 pour indiquer le type de véhicule (1 : voiture , 2 : camion)");
         if (typeOfVehicule == "1" || typeOfVehicule == "2")
         {
             switch (typeOfVehicule)
             {
                 case "1":
-                    int puissanceInput = Tools.GetIntInput("Indiquer la puissance de la voiture");
-                    vehicules.Add(new Voiture
-                    {
-                        Numero = mumeroInput,
-                        Marque = marqueInput,
-                        Modele = modeleInput,
-                        Puissance = puissanceInput
-                    });
+                    int puissanceInput = GetIntInput("Indiquer la puissance de la voiture");
+                    vehicules.Add(new Voiture(numeroInput, marqueInput, modeleInput, puissanceInput));
                     break;
                 case "2":
-                    double poidsInput = Tools.GetDoubleInput("Indiquer le poids du camion en Tonne");
+                    double poidsInput =GetDoubleInput("Indiquer le poids du camion en Tonne");
+                    vehicules.Add(new Camion(numeroInput, marqueInput, modeleInput, poidsInput));
                     break;
             };
             Console.WriteLine("Le véhicule à bien été ajouté à la liste vehicules");
         }
         else
         {
-            throw new Exception("Vous devez choisir entre 1 (pour voiture)  et 2 (pour camion)");
-            typeOfVehicule = Tools.GetStringInput("Indiquer le type de véhicule  : ");
+            Console.WriteLine("Vous devez choisir entre 1 (pour voiture)  et 2 (pour camion)");
+            typeOfVehicule =GetStringInput("Indiquer le type de véhicule  : ");
         }
     }
 
+    /// <summary>
+    /// Affiche l'ensemble des véhicules de la liste "vehicules"
+    /// </summary>
+    /// <param name="vehicules"></param>
     public static void GetAllVehicules(List<Vehicule> vehicules)
     {
-        
+
         foreach (Vehicule v in vehicules)
         {
             Console.WriteLine(v.ToString());

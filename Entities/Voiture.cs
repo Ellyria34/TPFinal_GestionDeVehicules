@@ -15,7 +15,7 @@ public class Voiture : Vehicule
     #region Constructeurs
     public Voiture() { }
 
-    public Voiture (int numero, string? marque, string? modele, int puissance) : base (numero, marque, modele)
+    public Voiture (int numero, string marque, string modele, int puissance) : base (numero, marque, modele)
     {
         Puissance = puissance;
     }
