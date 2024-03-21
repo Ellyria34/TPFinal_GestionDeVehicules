@@ -25,7 +25,7 @@ public class Camion : Vehicule
 
     public override string ToString()
     {
-        return string.Format("Numéro : {0, -8} Marque : {1, -15} Modele : {2, -20} Poids :      {3, 5} Tonne", Numero, Marque, Modele, Poids);
+        return string.Format("Numéro : {0, -8} Marque : {1, -15} Modele : {2, -20} Poids : {3, 10} Tonne", Numero, Marque, Modele, Poids);
     }
 
     #endregion

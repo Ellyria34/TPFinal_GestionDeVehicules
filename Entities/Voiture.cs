@@ -26,7 +26,7 @@ public class Voiture : Vehicule
 
     public override string ToString()
     {
-        return string.Format("Numéro : {0, -8} Marque : {1, -15} Modele : {2, -20} Puissance : {3, 5} chevaux", Numero, Marque, Modele, Puissance);
+        return string.Format("Numéro : {0, -8} Marque : {1, -15} Modele : {2, -20} Puissance : {3, 4} chevaux", Numero, Marque, Modele, Puissance);
     }
 
     #endregion

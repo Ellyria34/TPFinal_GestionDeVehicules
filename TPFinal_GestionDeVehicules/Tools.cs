@@ -79,9 +79,6 @@ public class Tools
             List<Vehicule> vehicules = new List<Vehicule>() { };
             return (vehicules);
         }
-
-        
-
     }
 
 }
