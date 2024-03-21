@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Entities;
-
 [JsonDerivedType(typeof(Voiture), typeDiscriminator: "voiture")]
 [JsonDerivedType(typeof(Camion), typeDiscriminator: "camion")]
 

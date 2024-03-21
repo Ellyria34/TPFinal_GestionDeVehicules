@@ -68,9 +68,20 @@ public class Tools
     /// <returns></returns>
     public static List<Vehicule> LoadListVehicules<List>(string fileName)
     {
-        string fileContent = File.ReadAllText(fileName);
-        List<Vehicule> vehicules = JsonSerializer.Deserialize<List<Vehicule>>(fileContent);
-        return vehicules;
+        if(File.Exists(fileName))
+        {
+            string fileContent = File.ReadAllText(fileName);
+            List<Vehicule> vehicules = JsonSerializer.Deserialize<List<Vehicule>>(fileContent);
+            return vehicules;
+        }
+        else {
+            Console.WriteLine("Le fichier n'a pas était trouvé");
+            List<Vehicule> vehicules = new List<Vehicule>() { };
+            return (vehicules);
+        }
+
+        
+
     }
 
 }

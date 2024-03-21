@@ -9,17 +9,17 @@ using TPFinal_GestionDeVehicules;
 
 public class Programe
 {
-    //static List<Vehicule> vehicules = new List<Vehicule>()
-    //{
-    //    new Voiture(1001, "CITROEN", "C3 WCR", 114),
-    //    new Camion(1002, "IVECO", "POWERSTAR", 9.3),
-    //    new Voiture(1003, "RENAULT", "CLIO V RALLY 5", 180 ),
-    //    new Voiture(1004, "HYUNDAY", "i20WRC", 380 ),
-    //    new Camion(1005, "DAF", "TURBOTWIN", 10.3),
-    //    new Voiture(1006, "NISSAN", "GT-R", 600),
-    //    new Voiture(1007, "FORD", "FIESTA Rally2", 300 ),
-    //    new Voiture(1008, "PEUGEOT", "2008 Rally4", 200 ),
-    //};
+    static List<Vehicule> vehicules = new List<Vehicule>()
+    {
+        new Voiture(1001, "CITROEN", "C3 WCR", 114),
+        new Camion(1002, "IVECO", "POWERSTAR", 9.3),
+        new Voiture(1003, "RENAULT", "CLIO V RALLY 5", 180 ),
+        new Voiture(1004, "HYUNDAY", "i20WRC", 380 ),
+        new Camion(1005, "DAF", "TURBOTWIN", 10.3),
+        new Voiture(1006, "NISSAN", "GT-R", 600),
+        new Voiture(1007, "FORD", "FIESTA Rally2", 300 ),
+        new Voiture(1008, "PEUGEOT", "2008 Rally4", 200 ),
+    };
 
 
     static void Main(string[] args)
