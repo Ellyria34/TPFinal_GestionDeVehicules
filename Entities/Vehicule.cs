@@ -6,7 +6,7 @@ namespace Entities;
 [JsonDerivedType(typeof(Voiture), typeDiscriminator: "voiture")]
 [JsonDerivedType(typeof(Camion), typeDiscriminator: "camion")]
 
-public class Vehicule
+public abstract class Vehicule
 {
     #region attributs
     public int numero;
